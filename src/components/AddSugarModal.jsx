@@ -1,7 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { useState } from 'react';
 
 
@@ -75,7 +74,7 @@ function AddSugarModal({ show, handleClose }) {
             <Form.Label>Others:</Form.Label>
             <Form.Control id="other" type="number" placeholder="Sugar Level" />
           </Form.Group>
-          <Button variant="primary" type='submit' >Save changes</Button>
+          <Button variant="primary" type='submit' onClick={handleClose} >Save changes</Button>
         </Form>
       </Modal.Body>
 

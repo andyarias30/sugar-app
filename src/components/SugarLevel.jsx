@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
-import NewLevel from "./NewLevel";
+import AddSugarModal from "./AddSugarModal";
 import userEvent from "@testing-library/user-event";
 export default function SugarLevels(){
-    
+  
+  const [show, setShow] = useState(false) 
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
   const [sugarLevels, setSugarLervels] = useState([])
     useEffect(() => {
         console.log('called funcion')
@@ -14,34 +19,7 @@ export default function SugarLevels(){
         .catch((err) => console.error(err))
     },[])
         
-    const handleForSubmit = (evt) => {
-      evt.preventDefault()
-      const formData = {}
-      formData.userName = evt.target.userName.value
-      formData.beforeBreakfast = evt.target.beforeBreakfast.value
-      formData.beforeLunch = evt.target.beforeLunch.value
-      formData.beforeDinner = evt.target.beforeDinner.value
-      formData.other = evt.target.other.value
-      console.log(formData)
-
-
-      evt.target.userName = ''
-      evt.target.beforeBreakfast = ''
-      evt.target.beforeLunch = ''
-      evt.target.beforeDinner = ''
-      evt.target.other = ''
-
-      fetch('http://localhost:3005/mysugarLevels', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      })
-      .then(res => res.json())
-      .then(cleanData => setSugarLervels(cleanData))
-      .catch(err => console.error(err))
-    }
+   
 
     return (
         <Table responsive striped bordered>
@@ -69,50 +47,22 @@ export default function SugarLevels(){
                   </tr>)
                 })}
           </tbody>
-          <>
-          <form action='' onSubmit={(e) => handleForSubmit(e)}>
-                <label htmlFor='userName'>
-                  <input type="text" name="userName" id="" />
-
-                </label>
-                <label htmlFor="beforeBreakfast">
-                  <input type="number" name='beforeBreakfast' id="" />
-
-                </label>
-                <label htmlFor='beforeLunch'>
-                <input type="number" name='beforeLunch'id="" />
-            
-                </label>
-                <label htmlFor="beforeDinner">
-                  <input type="number" name="beforeDinner" id=""  />
-
-                </label>
-                <label htmlFor="other">
-                  <input type="number" name="other" id="" />
-                </label>
-                 
-          </form>
-          <Button type="submit" variant="primary" >Add</Button>{' '}
-          <h2>This is new level</h2>
-          <div className="newLevel">
+          
+          <Button variant="primary" onClick={handleShow}>Add</Button>
+          
+          
             {
               sugarLevels && sugarLevels.map((singlePosts) => {
                 return (
-                  <div className="singleCard" key={singlePosts._id} >
-                    <NewLevel
-                     key={singlePosts._id} 
-                     userName={singlePosts.userName} 
-                     beforeBreakfast={singlePosts.beforeBreakfast}
-                     beforeLunch={singlePosts.beforeLunch}
-                     beforeDinner={singlePosts.beforeDinner}
-                     other={singlePosts.other}
-                      />
-                  </div>
+                
+                   
+                     <AddSugarModal show={show} handleClose={handleClose} />
+                
                 )
               })
             }
-          </div>
-          </>
+          
+          
         </Table>
           
           

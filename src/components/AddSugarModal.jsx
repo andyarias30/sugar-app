@@ -74,12 +74,12 @@ function AddSugarModal({ show, handleClose }) {
             <Form.Label>Others:</Form.Label>
             <Form.Control id="other" type="number" placeholder="Sugar Level" />
           </Form.Group>
-          <Button variant="primary" type='submit' onClick={handleClose} >Save changes</Button>
+          <Button variant="danger" type='submit' onClick={handleClose} >Save changes</Button>
         </Form>
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>Close</Button>
+        <Button variant="danger" onClick={handleClose}>Close</Button>
       </Modal.Footer>
     </Modal >
 

@@ -24,50 +24,41 @@ export default function SugarLevels() {
 
 
   return (
-    <Table responsive striped bordered>
-      <thead>
+    <Table responsive striped bordered  >
+      <thead >
         <tr>
-          <th>ID</th>
-          <th>User Name</th>
-          <th>Before Breakfast</th>
-          <th>Before Lunch</th>
-          <th>Before Dinner</th>
-          <th>Other</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">ID</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">User Name</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Breakfast</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Lunch</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Dinner</th>
+          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Other</th>
 
         </tr>
       </thead>
       <tbody>
         {sugarLevels.map(level => {
           return (<tr>
-            <td>{level._id}</td>
-            <td >{level.userName}</td>
-            <td >{level.beforeBreakfast}</td>
-            <td >{level.beforeLunch}</td>
-            <td >{level.beforeDinner}</td>
-            <td >{level.other}</td>
+            <td class="rounded-4  ">{level._id}</td>
+            <td class="rounded-4 ">{level.userName}</td>
+            <td class="rounded-4 ">🩸{level.beforeBreakfast}</td>
+            <td class="rounded-4 ">🩸{level.beforeLunch}</td>
+            <td class="rounded-4 ">🩸{level.beforeDinner}</td>
+            <td class="rounded-4 ">🩸{level.other}</td>
 
           </tr>)
         })}
       </tbody>
 
-      <Button variant="primary" onClick={handleShow}>Add</Button>
-
-
+      <Button variant="danger" onClick={handleShow}>Add</Button>
       {
         sugarLevels && sugarLevels.map((singlePosts) => {
+
           return (
-
-
             <AddSugarModal show={show} handleClose={handleClose} />
-
           )
         })
       }
-
-
     </Table>
-
-
-
   );
 }

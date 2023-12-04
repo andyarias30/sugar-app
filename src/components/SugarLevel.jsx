@@ -2,6 +2,9 @@ import { useState, useEffect } from "react"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import AddSugarModal from "./AddSugarModal";
+
+
+
 export default function SugarLevels() {
 
   const [show, setShow] = useState(false)
@@ -24,15 +27,16 @@ export default function SugarLevels() {
 
 
   return (
-    <Table responsive striped bordered  >
+    <Table  striped   >
       <thead >
         <tr>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">ID</th>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">User Name</th>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Breakfast</th>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Lunch</th>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Before Dinner</th>
-          <th class="p-3 mb-2 bg-danger text-white rounded-4 ">Other</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">ID</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">User Name</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">Before Breakfast</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">Before Lunch</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">Before Dinner</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">Other</th>
+          <th class="p-3 mb-2 bg-danger text-white  ">Date</th>
 
         </tr>
       </thead>
@@ -41,10 +45,12 @@ export default function SugarLevels() {
           return (<tr>
             <td class="rounded-4  ">{level._id}</td>
             <td class="rounded-4 ">{level.userName}</td>
-            <td class="rounded-4 ">🩸{level.beforeBreakfast}</td>
-            <td class="rounded-4 ">🩸{level.beforeLunch}</td>
-            <td class="rounded-4 ">🩸{level.beforeDinner}</td>
-            <td class="rounded-4 ">🩸{level.other}</td>
+            <td class="rounded-4 "><input type="number" id="disabledTextInput" defaultValue={level.beforeBreakfast} class="form-control"></input></td>
+            <td class="rounded-4 "><input type="number" id="disabledTextInput" defaultValue={level.beforeLunch} class="form-control"></input></td>
+            <td class="rounded-4 "><input type="number" id="disabledTextInput" defaultValue={level.beforeDinner} class="form-control"></input></td>
+            <td class="rounded-4 "><input type="number" id="disabledTextInput" defaultValue={level.other} class="form-control"></input></td>
+            <td class="rounded-4 ">{level.currentDate}</td>
+            <td class="rounded-4"><Button variant="danger" onClick={handleClose} >Save</Button></td>
 
           </tr>)
         })}

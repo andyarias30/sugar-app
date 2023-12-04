@@ -23,7 +23,7 @@ function AddSugarModal({ show, handleClose }) {
     formData.other = evt.target.other.value
     console.log(formData)
 
-
+    
     // evt.target.userName = ''
     // evt.target.beforeBreakfast = ''
     // evt.target.beforeLunch = ''
@@ -31,6 +31,7 @@ function AddSugarModal({ show, handleClose }) {
     // evt.target.other = ''
 
     fetch('http://localhost:3005/mysugarLevels', {
+    // fetch('https://sugar-smart-api.ue.r.appspot.com/mysugarLevels', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -46,7 +47,7 @@ function AddSugarModal({ show, handleClose }) {
 
   return (
 
-    <Modal show={show}>
+    <Modal show={show} >
       <Modal.Header >
         <Modal.Title>🩸❤️New Sugar Level❤️🩸</Modal.Title>
       </Modal.Header>
@@ -82,6 +83,8 @@ function AddSugarModal({ show, handleClose }) {
         <Button variant="danger" onClick={handleClose}>Close</Button>
       </Modal.Footer>
     </Modal >
+
+    
 
   );
 }

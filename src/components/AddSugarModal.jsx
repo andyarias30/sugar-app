@@ -23,12 +23,6 @@ function AddSugarModal({ show, handleClose }) {
     formData.other = evt.target.other.value
     console.log(formData)
 
-    
-    // evt.target.userName = ''
-    // evt.target.beforeBreakfast = ''
-    // evt.target.beforeLunch = ''
-    // evt.target.beforeDinner = ''
-    // evt.target.other = ''
 
     fetch('http://localhost:3005/mysugarLevels', {
     // fetch('https://sugar-smart-api.ue.r.appspot.com/mysugarLevels', {
@@ -42,7 +36,7 @@ function AddSugarModal({ show, handleClose }) {
       .then(cleanData => setSugarLervels(cleanData))
       .catch(err => console.error(err))
 
-    // handleClose()
+  
   }
 
   return (

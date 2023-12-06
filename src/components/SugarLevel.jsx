@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import AddSugarModal from "./AddSugarModal";
 
@@ -26,7 +25,6 @@ export default function SugarLevels() {
       .catch((err) => console.error(err))
   }, [])
 
-  const [modifiedLevels, setModifiedLevels] = useState()
 
   const handleForSave = (e) => {
     e.preventDefault()
@@ -51,41 +49,34 @@ export default function SugarLevels() {
       .catch(err => console.error(err))
   }
 
-
-
-
-
-
-
-
   return (
     <>
-        <Row>
-          <Col class="p-3 mb-2 bg-danger text-white  ">User Name</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">Before Breakfast</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">Before Lunch</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">Before Dinner</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">Other</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">Date</Col>
-          <Col class="p-3 mb-2 bg-danger text-white  ">{' '}</Col>
+      <Row>
+        <Col class="p-3 mb-2 bg-danger text-white  ">User Name</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">Before Breakfast</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">Before Lunch</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">Before Dinner</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">Other</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">Date</Col>
+        <Col class="p-3 mb-2 bg-danger text-white  ">{' '}</Col>
 
-        </Row>
-        {sugarLevels.map(level => {
-          return (
-            <form onSubmit={handleForSave}>
-              <Row>
-                {/* <td class="rounded-4  ">{level._id}</td> */}
-                <Col class="rounded-4 ">{level.userName} <input type="hidden" name="_id" value={level._id} /></Col>
-                <Col class="rounded-4 "><input type="number" name="beforeBreakfast" defaultValue={level.beforeBreakfast} class="form-control" /></Col>
-                <Col class="rounded-4 "><input type="number" name="beforeLunch" defaultValue={level.beforeLunch} class="form-control" /></Col>
-                <Col class="rounded-4 "><input type="number" name="beforeDinner" defaultValue={level.beforeDinner} class="form-control" /></Col>
-                <Col class="rounded-4 "><input type="number" name="other" defaultValue={level.other} class="form-control" /></Col>
-                <Col class="rounded-4 ">{level.currentDate}</Col>
-                <Col class="rounded-4"><Button variant="danger" type='submit'>Save</Button></Col>
-              </Row>
-            </form>
-          )
-        })}
+      </Row>
+      {sugarLevels.map(level => {
+        return (
+          <form onSubmit={handleForSave}>
+            <Row>
+              {/* <td class="rounded-4  ">{level._id}</td> */}
+              <Col class="rounded-4 ">{level.userName} <input type="hidden" name="_id" value={level._id} /></Col>
+              <Col class="rounded-4 "><input type="number" name="beforeBreakfast" defaultValue={level.beforeBreakfast} class="form-control" /></Col>
+              <Col class="rounded-4 "><input type="number" name="beforeLunch" defaultValue={level.beforeLunch} class="form-control" /></Col>
+              <Col class="rounded-4 "><input type="number" name="beforeDinner" defaultValue={level.beforeDinner} class="form-control" /></Col>
+              <Col class="rounded-4 "><input type="number" name="other" defaultValue={level.other} class="form-control" /></Col>
+              <Col class="rounded-4 ">{level.currentDate}</Col>
+              <Col class="rounded-4"><Button variant="danger" type='submit'>Save</Button></Col>
+            </Row>
+          </form>
+        )
+      })}
 
       <Button variant="danger" onClick={handleShow}>Add</Button>
       {

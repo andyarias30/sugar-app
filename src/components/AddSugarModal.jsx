@@ -24,8 +24,8 @@ function AddSugarModal({ show, handleClose }) {
     console.log(formData)
 
 
-    fetch('http://localhost:3005/mysugarLevels', {
-    // fetch('https://sugar-smart-api.ue.r.appspot.com/mysugarLevels', {
+    fetch(`${process.env.REACT_APP_API_URL}/mysugarLevels`, {
+
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -50,7 +50,7 @@ export default function SugarLevels() {
   }
 
   return (
-    <body className="sugarLevel">
+    <section className="sugarLevel container">
       <Row>
         <Col class="p-3 mb-2 bg-danger text-white  ">User Name</Col>
         <Col class="p-3 mb-2 bg-danger text-white  ">Before Breakfast</Col>
@@ -62,6 +62,7 @@ export default function SugarLevels() {
 
       </Row>
       {sugarLevels.map(level => {
+        const dateOnly = level.currentDate.split("T")[0]
         return (
           <form onSubmit={handleForSave}>
             <Row>
@@ -71,7 +72,7 @@ export default function SugarLevels() {
               <Col class="rounded-4 "><input type="number" name="beforeLunch" defaultValue={level.beforeLunch} class="form-control" /></Col>
               <Col class="rounded-4 "><input type="number" name="beforeDinner" defaultValue={level.beforeDinner} class="form-control" /></Col>
               <Col class="rounded-4 "><input type="number" name="other" defaultValue={level.other} class="form-control" /></Col>
-              <Col class="rounded-4 ">{level.currentDate}</Col>
+              <Col class="rounded-4 ">{dateOnly}</Col>
               <Col class="rounded-4"><Button variant="danger" type='submit'>Save</Button></Col>
             </Row>
           </form>
@@ -87,6 +88,6 @@ export default function SugarLevels() {
           )
         })
       }
-    </body>
+    </section>
   );
 }

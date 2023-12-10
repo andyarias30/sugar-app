@@ -10,16 +10,16 @@ import Home from './pages/Home';
 export default function App() {
   return (
     <>
-    <Header />
-  
-    <BrowserRouter>
-    <Routes>
-    <Route path='/sugarPlace' element={<SugarPlace />}/>
-    <Route path='/' element={<Home />} />
-     </Routes>
-    </BrowserRouter>
-    <hr className='hr'/>
-    <Footer />
+      <Header />
+
+      <BrowserRouter>
+        <Routes>
+          <Route path='/sugarPlace' element={<SugarPlace />} />
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+      <hr className='hr' />
+      <Footer />
     </>
   )
 }

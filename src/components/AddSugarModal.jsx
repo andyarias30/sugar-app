@@ -30,7 +30,7 @@ function AddSugarModal({ show, handleClose }) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formData),// json function
     })
       .then(res => res.json())
       .then(cleanData => setSugarLervels(cleanData))
@@ -41,7 +41,7 @@ function AddSugarModal({ show, handleClose }) {
 
   return (
 
-    <Modal show={show} >
+    <Modal show={show} className='modal' >
       <Modal.Header >
         <Modal.Title>🩸❤️New Sugar Level❤️🩸</Modal.Title>
       </Modal.Header>
@@ -74,7 +74,7 @@ function AddSugarModal({ show, handleClose }) {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button variant="danger" onClick={handleClose}>Close</Button>
+        <Button variant="danger" onClick={handleClose}>Cancel</Button>
       </Modal.Footer>
     </Modal >
 

@@ -8,16 +8,16 @@ import AddSugarModal from "./AddSugarModal";
 
 export default function SugarLevels() {
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false) // manage state in functioial components 
 
   const handleClose = () => {
-    setShow(false)
+    setShow(false) // should be closed.
     window.location.reload(false) // this function is for refresh the page 
   }
-  const handleShow = () => setShow(true)
+  const handleShow = () => setShow(true) // Show the Modal
 
-  const [sugarLevels, setSugarLervels] = useState([])
-  useEffect(() => {
+  const [sugarLevels, setSugarLervels] = useState([]) 
+  useEffect(() => { // use to manage side effect (fetching data )
     console.log('called funcion')
     fetch(`${process.env.REACT_APP_API_URL}/mysugarLevels `)
       .then((res) => res.json())
@@ -50,7 +50,7 @@ export default function SugarLevels() {
   }
 
   return (
-    <>
+    <body className="sugarLevel">
       <Row>
         <Col class="p-3 mb-2 bg-danger text-white  ">User Name</Col>
         <Col class="p-3 mb-2 bg-danger text-white  ">Before Breakfast</Col>
@@ -78,7 +78,7 @@ export default function SugarLevels() {
         )
       })}
 
-      <Button variant="danger" onClick={handleShow}>Add</Button>
+      <Button variant="danger" size="lg" onClick={handleShow}>Add</Button>
       {
         sugarLevels && sugarLevels.map((singlePosts) => {
 
@@ -87,6 +87,6 @@ export default function SugarLevels() {
           )
         })
       }
-    </>
+    </body>
   );
 }

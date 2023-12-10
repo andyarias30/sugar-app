@@ -1,15 +1,27 @@
 
 import './App.css';
-import Home from './pages/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import SugarPlace from './pages/SugarPlace';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
-function App() {
+export default function App() {
   return (
     <>
-    <Home /> 
-    
+    <Header />
+  
+    <BrowserRouter>
+    <Routes>
+    <Route path='/sugarPlace' element={<SugarPlace />}/>
+    <Route path='/' element={<Home />} />
+     </Routes>
+    </BrowserRouter>
+    <hr />
+    <Footer />
     </>
   )
 }
 
-export default App;
+

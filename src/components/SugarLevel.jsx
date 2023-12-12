@@ -37,7 +37,7 @@ export default function SugarLevels() {
     }
     console.log('fromData in sugarLevels-->', fromData)
 
-    fetch(`${process.env.REACT_APP_API_URL}/mysugarLevels`, {
+    fetch(`${process.env.REACT_APP_API_URL}/mysugarLevels/${e.target._id.value}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
